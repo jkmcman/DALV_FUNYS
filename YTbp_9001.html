@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YTbp 9001</title>
+
+
+<style>
+  body {
+    background: #008080;
+    font-family: "MS Sans Serif", Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: black;
+  }
+
+
+  .window {
+    width: 600px;
+    margin: auto;
+    border: 3px solid #c0c0c0;
+    background: #c0c0c0;
+    box-shadow: inset -2px -2px #000, inset 2px 2px #fff;
+  }
+
+
+  .title-bar {
+    background: linear-gradient(to right, navy, blue);
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+
+  .content {
+    padding: 10px;
+  }
+
+
+  input {
+    width: 100%;
+    padding: 5px;
+    border: 2px inset #fff;
+    background: white;
+    font-family: monospace;
+    font-size: 12px;
+  }
+
+
+  button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 2px outset #fff;
+    background: #c0c0c0;
+    cursor: pointer;
+  }
+
+
+  button:active {
+    border: 2px inset #fff;
+  }
+
+
+  .video-box {
+    margin-top: 15px;
+    width: 100%;
+    height: 340px;
+    border: 2px inset #fff;
+    background: black;
+  }
+
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+
+  .footer {
+    margin-top: 10px;
+    font-size: 11px;
+    text-align: center;
+  }
+</style>
+</head>
+
+
+<body>
+
+
+<div class="window">
+  <div class="title-bar">YTbp 9001</div>
+
+
+  <div class="content">
+    <div>input YT URL or playlist or yeah</div>
+    <input id="urlInput" placeholder="letterink">
+
+
+    <button onclick="embed()">pay                           p***h**.com</button>
+
+
+    <div class="video-box" id="playerBox"></div>
+
+
+    <div class="footer">
+      powered by rat poison
+    </div>
+  </div>
+</div>
+
+
+<script>
+function getYouTubeData(url) {
+  let videoId = null;
+  let listId = null;
+
+
+  try {
+    const u = new URL(url);
+
+
+    // youtu.be short links
+    if (u.hostname.includes("youtu.be")) {
+      videoId = u.pathname.slice(1);
+    }
+
+
+    // youtube.com links
+    if (u.hostname.includes("youtube.com")) {
+      videoId = u.searchParams.get("v");
+      listId = u.searchParams.get("list");
+
+
+      // shorts support
+      if (!videoId && u.pathname.startsWith("/shorts/")) {
+        videoId = u.pathname.split("/shorts/")[1];
+      }
+
+
+      // embed links
+      if (!videoId && u.pathname.includes("/embed/")) {
+        videoId = u.pathname.split("/embed/")[1];
+      }
+    }
+
+
+  } catch (e) {
+    return null;
+  }
+
+
+  // Clean IDs (remove junk like &t=)
+  if (videoId) videoId = videoId.split(/[?&]/)[0];
+  if (listId) listId = listId.split(/[?&]/)[0];
+
+
+  return { videoId, listId };
+}
+
+
+function embed() {
+  const input = document.getElementById("urlInput").value.trim();
+  const data = getYouTubeData(input);
+
+
+  if (!data || (!data.videoId && !data.listId)) {
+    alert("that link is cur                       ok?");
+    return;
+  }
+
+
+  let src = "";
+
+
+  if (data.videoId && data.listId) {
+    src = `https://www.youtube-nocookie.com/embed/${data.videoId}?list=${data.listId}`;
+  } 
+  else if (data.listId) {
+    src = `https://www.youtube-nocookie.com/embed/videoseries?list=${data.listId}`;
+  } 
+  else {
+    src = `https://www.youtube-nocookie.com/embed/${data.videoId}`;
+  }
+
+
+  document.getElementById("playerBox").innerHTML =
+    `<iframe src="${src}" allowfullscreen>oh                    no</iframe>`;
+}
+</script>
+
+
+</body>
+</html>
