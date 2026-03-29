@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/png" href="https://i.imgur.com/F5185BE.png">
+<title>Clever frog</title>
+
+
+<style>
+
+
+body, html{
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+
+/* Floating back image */
+.back-img{
+    position:fixed;
+    top:15px;
+    left:15px;
+    width:50px;
+    cursor:pointer;
+    z-index:1000;
+    animation:float 2s ease-in-out infinite;
+}
+
+
+/* Floating animation */
+@keyframes float{
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+
+iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+
+</style>
+</head>
+
+
+<body>
+
+
+<img 
+class="back-img"
+src="https://i.imgur.com/tBd4PoL.jpeg"
+onclick="location.href='index.html'"
+>
+
+
+<iframe src="https://www.ilibrarian.net/games/clever-frog/index.html"></iframe>
+
+
+</body>
+</html>

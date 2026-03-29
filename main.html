@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fun learning lessons!</title>
+
+
+<style>
+:root{
+    --bg:#000;
+    --green:#00ff88;
+    --green-dim:#00aa55;
+}
+
+
+
+
+body{
+    margin:0;
+    font-family:monospace;
+    background:black;
+    color:#b6ffcf;
+    overflow:hidden;
+}
+
+
+
+
+canvas{
+    position:fixed;
+    inset:0;
+    z-index:0;
+}
+
+
+
+
+#intro{
+    position:fixed;
+    inset:0;
+    background:black;
+    color:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:5;
+    font-size:1.2rem;
+    white-space:pre;
+    text-align:center;
+}
+
+
+
+
+.cursor{
+    display:inline-block;
+    width:10px;
+    background:var(--green);
+    margin-left:5px;
+    animation:blink 0.7s infinite;
+}
+
+
+
+
+@keyframes blink{
+    0%,50%,100%{opacity:1}
+    25%,75%{opacity:0}
+}
+
+
+
+
+#skipBtn{
+    background:black;
+    color:var(--green);
+    border:1px solid var(--green);
+    padding:6px 12px;
+    font-family:monospace;
+    cursor:pointer;
+    transition:.2s;
+}
+
+
+
+
+#skipBtn:hover{
+    background:var(--green);
+    color:black;
+    box-shadow:0 0 10px var(--green);
+}
+
+
+
+
+.main{
+    display:none;
+    position:relative;
+    z-index:2;
+}
+
+
+
+
+.title{
+    text-align:center;
+    font-size:3rem;
+    margin:20px;
+    color:var(--green);
+    text-shadow:0 0 25px var(--green);
+}
+
+
+
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+
+
+
+.card{
+    background:#0b120b;
+    border:1px solid var(--green-dim);
+    border-radius:10px;
+    overflow:hidden;
+    text-decoration:none;
+    color:white;
+    transition:.2s;
+}
+
+
+
+
+.card:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 15px var(--green);
+}
+
+
+
+
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+
+
+
+.card-title{
+    padding:10px;
+    text-align:center;
+}
+</style>
+</head>
+
+
+
+
+<body>
+<link id="favicon" rel="icon" href="https://files.catbox.moe/68n1dg.ico">
+
+
+<canvas id="matrix"></canvas>
+
+
+
+
+<div id="intro">
+    <div>
+        <span id="text"></span><span class="cursor"></span>
+        <br><br>
+        <button id="skipBtn">ĆĻĪĈĶ ŤOʻ ȘƘĮP ƆṚ ÛŞĔ ĖÑȚÊṚ ĶËŶ</button>
+    </div>
+</div>
+
+
+
+
+<div class="main" id="main">
+
+
+
+
+<div class="title">ÐÃĻV FÜƝỲȘ</div>
+
+
+
+
+<div class="grid">
+
+
+
+
+<a href="CleverFrog.html" class="card">
+<img src="https://i.imgur.com/4uGJ27Z.png">
+<div class="card-title">ĆĻÊVÉR FṚÓĞ</div>
+</a>
+
+
+
+
+<a href="FNAFwag.html" class="card">
+<img src="https://i.imgur.com/G1Gh5OT.png">
+<div class="card-title">FÑÁF ẂĂĜ</div>
+</a>
+
+
+
+
+<a href="Min.html" class="card">
+<img src="https://gaming-cdn.com/images/products/442/616x353/minecraft-java-and-bedrock-edition-pc-mac-cover.jpg">
+<div class="card-title">MĪŅÊČ̣ŔĄFŢ</div>
+</a>
+
+
+
+
+<a href="Skele.wav" class="card">
+<img src="https://i.imgur.com/FlqBqLB.jpeg">
+<div class="card-title">§ƘÊĽÈȚĄĹ ȘĤN̈ÅŉÎĢªṄŜ</div>
+</a>
+
+
+
+
+<a href="lgb.html" class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/42/LGB_Garden_Train.jpg">
+<div class="card-title">ŁGʻƁ (mâỳ ɓē őffên̈ṣ̌ïvə)</div>
+</a>
+
+
+
+
+<a href="vremya.html" class="card">
+<img src="https://i.imgur.com/FFYM9UU.jpeg">
+<div class="card-title">ťĕřṛìąřıã ţéřṛóŕ íɲfɔ vřëmỳã</div>
+</a>
+
+
+
+
+<a href="UBSP.html" class="card">
+<img src="https://variety.com/wp-content/uploads/2019/10/south-park.jpg">
+<div class="card-title">ṢP ɓân̈ńẹď ĘPŝ</div>
+</a>
+
+
+
+
+<a href="SW2.html" class="card">
+<img src="https://upload.wikimedia.org/wikipedia/en/3/31/Shockwave_Cover.jpg">
+<div class="card-title">Ṣ̌ĥõč̣ķẁávə 2</div>
+</a>
+
+
+
+
+<a href="Testbwd.html" class="card">
+<img src="https://firstbenefits.org/wp-content/uploads/2017/10/placeholder.png">
+<div class="card-title">ŦēŝťƁẄĐ</div>
+</a>
+
+
+
+
+<a href="balatro.html" class="card">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjL3XpI3kCS3gjTy5R3R0Ur3PnNX0YFKWYABcPGmy1kn_LVB1chVIOseg8L0QjpjmnFHre&s=10">
+<div class="card-title">Ɓâľâŧṛơ (ɓřõƙëŉ)</div>
+</a>
+
+
+
+
+<a href="YTbp_9001.html" class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/62/YouTube_social_white_square_%282024%29.svg">
+<div class="card-title">ŶŢɓp ⁹⁰⁰¹</div>
+</a>
+
+
+<a href="reloader.html" class="card">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRPLv68hguVt77Tia1c7Z_DqN5pfdBSld5kg&s">
+<div class="card-title">řêłòāđëř</div>
+</a>
+
+
+<a href="index.html" class="card">
+<img src="https://firstbenefits.org/wp-content/uploads/2017/10/placeholder.png">
+<div class="card-title">pĺâčēĥɔļďëṛ</div>
+</a>
+
+
+</div>
+
+
+
+
+<script>
+const c=document.getElementById("matrix");
+const ctx=c.getContext("2d");
+c.width=innerWidth;
+c.height=innerHeight;
+
+
+
+
+const letters="ÐÃĻVFÜƝỲȘ";
+const fontSize=14;
+const cols=c.width/fontSize;
+const drops=Array(Math.floor(cols)).fill(1);
+
+
+
+
+function draw(){
+    ctx.fillStyle="rgba(0,0,0,0.07)";
+    ctx.fillRect(0,0,c.width,c.height);
+
+
+
+
+    ctx.fillStyle="#00ff88";
+    ctx.font=fontSize+"px monospace";
+
+
+
+
+    for(let i=0;i<drops.length;i++){
+        const t=letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(t,i*fontSize,drops[i]*fontSize);
+
+
+
+
+        if(drops[i]*fontSize>c.height&&Math.random()>0.97) drops[i]=0;
+        drops[i]++;
+    }
+}
+setInterval(draw,30);
+
+
+
+
+const intro=document.getElementById("intro");
+const main=document.getElementById("main");
+const text=document.getElementById("text");
+const skipBtn=document.getElementById("skipBtn");
+
+
+let skipped = false;
+
+
+
+
+const lines=[
+"> íñîŧāľīẓ̌ìňgʻ ...",
+"> ɓŷpâşșíñgʻ...",
+"> áçťįvâťįŉģ ómëǧª őɓ§ţřůçťìøň...",
+"> įŉǰ̣ɛćťįŋgʻ...",
+"> ðêčṛỳpťįńgʻ...",
+"> ĀČČ̣Ə§Š GʻṚÃƝŤĖĐ"
+];
+
+
+
+
+function showMain(){
+    intro.style.display="none";
+    main.style.display="block";
+    document.body.style.overflow="auto";
+}
+
+
+
+
+function skipIntro(){
+    if(skipped) return;
+    skipped = true;
+    showMain();
+}
+
+
+
+
+skipBtn.onclick = skipIntro;
+
+
+
+
+document.addEventListener("keydown", (e) => {
+    if(e.key === "Enter"){
+        skipIntro();
+    }
+});
+
+
+
+
+async function run(){
+    for(let l of lines){
+        for(let i=0;i<l.length;i++){
+            if(skipped) return;
+            text.innerHTML+=l[i];
+            await new Promise(r=>setTimeout(r,75));
+        }
+        text.innerHTML+="\n";
+        await new Promise(r=>setTimeout(r,75));
+        if(skipped) return;
+    }
+
+
+
+
+    await new Promise(r=>setTimeout(r,200));
+    if(!skipped) showMain();
+}
+
+
+
+
+run();
+</script>
+
+
+
+
+</body>
+</html>
